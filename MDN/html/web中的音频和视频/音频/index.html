@@ -1,0 +1,13 @@
+<audio controls id="my-media-element">
+    <source src="viper.mp3" type="audio/mp3">
+    <source src="viper.ogg" type="audio/ogg">
+    <p>你的浏览器不支持 HTML5 音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+</audio>
+<button onclick="playAudio()">播放</button>
+<script>
+    function playAudio() {
+        const mediaElem = document.getElementById("my-media-element");
+        mediaElem.play();
+    }
+    playAudio()
+</script>
