@@ -4,10 +4,10 @@ const thumbBar = document.querySelector('.thumb-bar');
 const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
-/* Looping through images */
+/* 添加图片循环 */
 
 const newImage = document.createElement('img');
 newImage.setAttribute('src', xxx);
 thumbBar.appendChild(newImage);
 
-/* Wiring up the Darken/Lighten button */
+/* 编写 变暗/变量 按钮功能 */
