@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+        p {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p class="seconds">0</p>
+    <button id="start">Start</button>
+    <button id="stop">Stop🤚</button>
+    <button id="reset">Reset</button>
+
+    <script>
+
+        let totalSeconds = 0
+
+        const secondsPara = document.querySelector('.seconds')
+        const start = document.querySelector('#start')
+        const stop = document.querySelector('#stop')
+        const reset = document.querySelector('#reset')
+
+        let timeInvertal
+
+        function startTimer() {
+            totalSeconds += 1
+            displaySeconds()
+        }
+
+        function stopTimer() {
+            clearInterval(timeInvertal)
+        }
+
+        function displaySeconds() {
+            secondsPara.textContent = totalSeconds
+        }
+
+        start.onclick = function () {
+            displaySeconds()
+            timeInvertal = setInterval(startTimer, 1000)
+        }
+        stop.onclick = function() {
+            stopTimer()
+        }
+        reset.onclick = function() {
+            stopTimer()
+            totalSeconds = 0
+            displaySeconds()
+        }
+
+    </script>
+</body>
+
+</html>
