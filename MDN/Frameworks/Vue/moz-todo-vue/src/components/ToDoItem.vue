@@ -10,7 +10,12 @@
       <label :for="id">{{ label }}</label>
     </div>
     <div class="btn-group">
-      <button type="button" class="btn" @click="toggleToItemEditForm">
+      <button
+        type="button"
+        class="btn"
+        ref="editButton"
+        @click="toggleToItemEditForm"
+      >
         Edit <span class="visually-hidden">{{ label }}</span>
       </button>
       <button type="button" class="btn btn__danger" @click="deleteToDo">
@@ -50,24 +55,36 @@ export default {
   },
   data() {
     return {
-      isDone: this.done,
       isEditing: false,
     };
+  },
+  computed: {
+    isDone() {
+      return this.done;
+    },
   },
   methods: {
     deleteToDo() {
       this.$emit("item-deleted");
     },
     toggleToItemEditForm() {
+      console.log(this.$refs.editButton);
       this.isEditing = true;
     },
+    focusOnEditButton() {
+      this.$nextTick(() => {
+        const editButtonRef = this.$refs.editButton;
+        editButtonRef.focus();
+      });
+    },
     itemEdited(newLabel) {
-      alert(newLabel)
       this.$emit("item-edited", newLabel);
       this.isEditing = false;
+      this.focusOnEditButton();
     },
     editCancelled() {
       this.isEditing = false;
+      this.focusOnEditButton();
     },
   },
 };

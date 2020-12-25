@@ -7,6 +7,7 @@
         type="text"
         autocomplete="off"
         v-model.lazy.trim="newLabel"
+        ref="labelInput"
       />
     </div>
     <div class="btn-group">
@@ -48,6 +49,9 @@ export default {
       this.$emit("edit-cancelled");
     },
   },
+  mounted() {
+    this.$refs.labelInput.focus()
+  }
 };
 </script>
 <style scoped>
