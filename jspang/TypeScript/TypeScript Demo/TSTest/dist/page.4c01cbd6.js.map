@@ -1,0 +1,1 @@
+{"version":3,"sources":["page.ts"],"names":[],"mappings":";;AAAA,IAAM,MAAM,GAAW,KAAvB;AACA,OAAO,CAAC,GAAR,CAAY,MAAZ","file":"page.4c01cbd6.js","sourceRoot":"../src","sourcesContent":["const myName: string = \"李懿哲\";\nconsole.log(myName);"]}
